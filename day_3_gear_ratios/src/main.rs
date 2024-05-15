@@ -66,14 +66,13 @@ fn check_is_adjacent_symbol(
             }
         }
     }
-    // Check is adjacent horizontally
-    if item_index > 0 {
-        if check_is_symbol(&data[line_index][start_index as usize]) {
-            return true;
-        }
-        if check_is_symbol(&data[line_index][item_index]) {
-            return true;
-        }
+    // Check is adjacent left
+    if check_is_symbol(&data[line_index][start_index as usize]) {
+        return true;
+    }
+    // Check is adjacent right
+    if check_is_symbol(&data[line_index][item_index]) {
+        return true;
     }
     false
 }
