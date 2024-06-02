@@ -53,13 +53,10 @@ fn dijkstra(
     {
         let mut moves = vec![(1, 0), (0, 1), (-1, 0), (0, -1)];
         moves.retain(|i| i != &(-direction_with_moves.0 .0, -direction_with_moves.0 .1));
-        if direction_with_moves.1 > 3 {
+        if direction_with_moves.1 == 3 {
             moves.retain(|i| i != &direction_with_moves.0);
         }
         for &single_move in &moves {
-            if single_move == direction_with_moves.0 && direction_with_moves.1 == 3 {
-                continue;
-            }
             let (dr, dc) = single_move;
             let next_row = row as isize + dr;
             let next_col = col as isize + dc;
